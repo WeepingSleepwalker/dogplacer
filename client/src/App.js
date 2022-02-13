@@ -57,6 +57,11 @@ function App() {
     mapRef.current = map;
   }, []);
 
+  const panTo = React.useCallback(({ lat, lng }) => {
+    mapRef.current.panTo({ lat, lng });
+    mapRef.current.setZoom(14);
+  }, []);
+
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "loading maps";
 
@@ -66,6 +71,7 @@ function App() {
         <Route exact path="/">
           <header className="App-header">
             <h3>Other Dog walkers in your Neighborhood</h3>
+
             <GoogleMap
               mapContainerStyle={mapContainerStyle}
               zoom={14}
@@ -99,8 +105,9 @@ function App() {
                   }}
                 >
                   <div>
-                    <Link style={{ color: "purple" }} to="/dogwalker">Doggo</Link>
-                    <p style={{ color: 'purple' }}>Spotted {formatRelative(selected.time, new Date())}</p>
+                    <Link style={{ color: "purple" }} to="/dogwalker">Doggo where {selected.lat, selected.lng} </Link>
+                    <p style={{ color: 'purple' }}>Spotted {formatRelative(selected.time, new Date())} </p>
+                    <p></p>
                   </div>
                 </InfoWindow>
               ) : null}

@@ -1,0 +1,13 @@
+[build]
+  functions = "functions/"
+  publish = "dist/"
+  command = "npm run start"
+
+[template.environment]
+  API_URL = "your Google Maps API endpoint"
+  API_TOKEN = "REACT_APP_GOOGLE_MAPS_API_KEY"
+
+[[redirects]]
+from="/api"
+to=".netlify/functions/getapi"
+status=200
