@@ -1,4 +1,6 @@
-export default [
+
+
+const darkMap = [
     {
         "featureType": "all",
         "elementType": "all",
@@ -359,7 +361,8 @@ export default [
         "stylers": [
             {
                 "visibility": "off"
-            }
-        ]
-    }
-]
+            },
+        ],
+    },
+];
+export default darkMap;

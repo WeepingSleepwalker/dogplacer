@@ -3,8 +3,8 @@ import { Route, Switch, Link } from "react-router-dom"
 import './App.css';
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import { formatRelative } from 'date-fns';
-import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
-import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from '@reach/combobox';
+// import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
+// import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from '@reach/combobox';
 import mapStyles from "./mapStyles.js";
 import Dogwalker from './components/Dogwalker';
 
@@ -57,10 +57,10 @@ function App() {
     mapRef.current = map;
   }, []);
 
-  const panTo = React.useCallback(({ lat, lng }) => {
-    mapRef.current.panTo({ lat, lng });
-    mapRef.current.setZoom(14);
-  }, []);
+  // const panTo = React.useCallback(({ lat, lng }) => {
+  //   mapRef.current.panTo({ lat, lng });
+  //   mapRef.current.setZoom(14);
+  // }, []);
 
   if (loadError) return "Error loading maps";
   if (!isLoaded) return "loading maps";
@@ -85,11 +85,11 @@ function App() {
                   key={marker.time.toISOString()}
                   position={{ lat: marker.lat, lng: marker.lng }}
                   icon={{
-                    url: "/dogwalk.png",
+                    url: `/dogwalk.png`,
                     // format the centering the icon
                     scaledSize: new window.google.maps.Size(20, 20),
                     origin: new window.google.maps.Point(0, 0),
-                    anchor: new window.google.maps.Point(10, 10)
+                    anchor: new window.google.maps.Point(10, 10),
                   }}
                   // making a new note by passing the marker in onCLick event
                   onClick={() => {
