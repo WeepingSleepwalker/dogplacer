@@ -70,7 +70,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           <header className="App-header">
-            <h3>Other Dog walkers in your Neighborhood</h3>
+            <h3 style={{ color: "white" }}>Other Dog walkers in your Neighborhood</h3>
 
             <GoogleMap
               mapContainerStyle={mapContainerStyle}
@@ -101,7 +101,7 @@ function App() {
                 <InfoWindow
                   position={{ lat: selected.lat, lng: selected.lng }}
                   onCloseClick={() => {
-                    setSelected(null);
+                    return setSelected(null)
                   }}
                 >
                   <div>
